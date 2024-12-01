@@ -1005,6 +1005,8 @@ data = """28186   35627
 55820   53096"""
 
 l3 = data.split()
+diff = 0
+simscore = 0
 
 for i in range(len(l3)):
     if i%2 == 0:
@@ -1012,19 +1014,12 @@ for i in range(len(l3)):
     else:
         l2.append(int(l3[i]))
 
-
 l1.sort()
 l2.sort()
 
-diff = 0
 for i in range(len(l1)):
     diff += abs(l1[i] - l2[i])
+    simscore += l1[i] * l2.count(l1[i])
 
 print(diff)
-
-# Part 2
-
-simscore = 0
-for i in range(len(l1)):
-    simscore += l1[i] * l2.count(l1[i])
 print(simscore)
